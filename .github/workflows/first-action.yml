@@ -1,0 +1,17 @@
+#reserved keywords : name, on, jobs, runs-on, steps
+
+name : First Workflow
+# we can define an event or events which will trigger this workflow to run
+# workflow_dispatch ensures we can manually trigger the workflow
+# this event waits for user to manually start the workflow
+on : workflow_dispatch 
+
+# in yml if we enter and have a indent it means that belongs to the parent
+jobs : 
+  first-job : # can give any name instead of first-job
+    runs-on : ubuntu-latest
+    steps : 
+      - name : print greeting  #the dash represents the step, so this is step-1
+        run : echo " Hello World " # define command that should be executed in command line
+      - name : print goodbye
+        run : echo "Goodbye"
