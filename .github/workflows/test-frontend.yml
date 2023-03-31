@@ -13,7 +13,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v3
         with:
-        node-version: 18 #ubuntu already comes up with nodejs 16 but we want v18
+          node-version: 18 #ubuntu already comes up with nodejs 16 but we want v18
 
       #STEP-3
       - name: Install Dependecy
