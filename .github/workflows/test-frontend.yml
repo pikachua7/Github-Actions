@@ -17,8 +17,8 @@ jobs:
 
       #STEP-3
       - name: Install Dependecy
-        uses: npm ci # we can use npm install too but npm ci only install packages version from package-lock
+        run: npm ci # we can use npm install too but npm ci only install packages version from package-lock
 
       #STEP-4
       - name: Run test
-        uses: npm test
+        run: npm test
