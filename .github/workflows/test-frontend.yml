@@ -6,19 +6,19 @@ jobs:
     steps:
       #STEP-1
       - name: Get code #first we need to get the code onto the runner (i.e ubuntu-latest)
-      - uses: actions/checkout@v3 #if we want to use an action otherwise we use "run" command
-      # - with : #configuration
+        uses: actions/checkout@v3 #if we want to use an action otherwise we use "run" command
+      # with : #configuration
 
       #STEP-2
       - name: Install NodeJS
-      - uses: actions/setup-node@v3
-      - with:
+        uses: actions/setup-node@v3
+        with:
         node-version: 18 #ubuntu already comes up with nodejs 16 but we want v18
 
       #STEP-3
       - name: Install Dependecy
-      - uses: npm ci # we can use npm install too but npm ci only install packages version from package-lock
+        uses: npm ci # we can use npm install too but npm ci only install packages version from package-lock
 
       #STEP-4
       - name: Run test
-      - uses: npm test
+        uses: npm test
