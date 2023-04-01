@@ -1,5 +1,6 @@
 name: Test for React code
-on: push # we want to trigger the workflow whenever a push event is created
+#workflow_dispatch is for manually triggering the workflow
+on: [push, workflow_dispatch] # we want to trigger the workflow whenever a push event is created , [trigger1,trigger2] multiple triggers are possible
 jobs:
   #JOB-1
   test: #name of job
