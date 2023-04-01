@@ -26,6 +26,7 @@ jobs:
 
   #JOB-2
   deploy: #JOB name
+    needs: test #if we want deploy job to be execute after test job has been executed successfully #can wrap in [job1,job2] for multiple jobs to finish
     runs-on: ubuntu-latest
     steps:
       #STEP-1
