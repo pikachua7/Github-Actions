@@ -1,7 +1,8 @@
 name: Test for React code
 on: push # we want to trigger the workflow whenever a push event is created
 jobs:
-  first-job:
+  #JOB-1
+  test: #name of job
     runs-on: ubuntu-latest # always checkout what preinstalled things it comes with
     steps:
       #STEP-1
@@ -22,3 +23,30 @@ jobs:
       #STEP-4
       - name: Run test
         run: npm test
+
+  #JOB-2
+  deploy: #JOB name
+    runs-on: ubuntu-latest
+    steps:
+      #STEP-1
+      - name: Get code #first we need to get the code onto the runner (i.e ubuntu-latest)
+        uses: actions/checkout@v3 #if we want to use an action otherwise we use "run" command
+      # with : #configuration
+
+      #STEP-2
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 #ubuntu already comes up with nodejs 16 but we want v18
+
+      #STEP-3
+      - name: Install Dependecy
+        run: npm ci # we can use npm install too but npm ci only install packages version from package-lock
+
+      #STEP-4
+      - name: Build project
+        run: npm run build
+
+      #STEP-5
+      - name: Deploy to remote
+        run: echo "Deployed"
